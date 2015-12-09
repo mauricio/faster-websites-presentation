@@ -51,6 +51,137 @@
 					</p>
 				</section>
 
+				<section>
+					<h1>Make it fly</h1>
+					<p>
+						It doesn't matter your customer in in a really fast connection,
+						if you don't pay attention to how your data is served, it will
+						still <em>be and look</em> slow.
+					</p>
+				</section>
+
+				<section>
+					<h1>Use tools to measure your front-end performance</h1>
+					<ul>
+						<li><a href="http://yslow.org/">http://yslow.org/</a></li>
+						<li><a href="https://developers.google.com/speed/pagespeed/">https://developers.google.com/speed/pagespeed/</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Enable HTTP/2</h1>
+					<p>Check how to do that to your server software</p>
+				</section>
+
+				<section>
+					<h1>Make fewer HTTP requests</h1>
+				</section>
+
+				<section data-background="images/confused-travolta.gif">
+					<h1>How?</h1>
+				</section>
+
+				<section>
+					<h1>Bundle assets files into a single file</h1>
+					<p>This means merging all JS and CSS files into just one of each</p>
+				</section>
+
+				<section>
+					<h1>If you're using Rails...</h1>
+					<p>... make sure you're using the assets pipeline to serve JavaScript and CSS files</p>
+				</section>
+
+				<section>
+					<h1>Use CSS sprites</h1>
+				</section>
+
+				<section>
+					<p>
+						<img src="images/amazon-sprites.png"/>
+					</p>
+				</section>
+
+				<section>
+					<h1>Code</h1>
+					<pre><code class="css" data-trim contenteditable style="font-size: 18px;">
+#navbar .nav-sprite {
+  background-image: url("http://g-ecx.images-amazon.com/images-2x-v1.png");
+  background-size: 350px;
+  background-position: -10px -340px;
+  height: 26px;
+  width: 46px;
+}
+</code></pre>
+				</section>
+
+				<section>
+					<h1>Put CSS includes at the top of your page</h1>
+				</section>
+
+				<section>
+					<h1>Put JavaScript includes at the bottom of your page</h1>
+				</section>
+
+				<section>
+					<h1>Use Expires or Cache-Control headers whenever possible</h1>
+					<p>
+						Page or static content that doesn't change often? You must include an Expires or Cache-Control header.
+					</p>
+				</section>
+
+				<section>
+					<h1>If you're using Nginx</h1>
+					<pre><code data-trim contenteditable style="font-size: 18px;">
+location ~* \.(?:ico|css|js|gif|jpe?g|png)$ {
+  expires 30d;
+  add_header Pragma public;
+  add_header Cache-Control "public";
+}
+				</code></pre>
+				</section>
+
+				<section>
+					<h1>Compress/Gzip your assets</h1>
+<pre><code data-trim contenteditable style="font-size: 18px;">
+gzip  on;
+gzip_http_version 1.1;
+gzip_vary on;
+gzip_comp_level 6;
+gzip_proxied any;
+gzip_types text/plain text/html text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript text/x-js;
+gzip_buffers 16 8k;
+gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+</code></pre>
+				</section>
+
+				<section>
+					<h1>Use a CDN to distribute your static content</h1>
+					<p>Content delivery networks will have edge locations closer to your users and will provide faster results for your static assets. CloudFlare and Amazon CloudFront are great options.</p>
+				</section>
+
+				<section>
+					<h1>Optimize images and do not scale them in HTML</h1>
+					<p>Use <em>pngcrush</em> and <em>jpegtran</em> to remove useless stuff from your images.</p>
+				</section>
+
+				<section>
+					<h1>Avoid redirects</h1>
+					<p>Try to always serve content whenever a user requests a URL</p>
+				</section>
+
+				<section>
+					<h1>Using AJAX? Make it cacheable</h1>
+				</section>
+
+				<section>
+					<h1>The end! Thanks!</h1>
+					<p>
+						<small>
+							<a href="http://mauricio.github.io/">Maurício Linhares</a> /
+							<a href="http://twitter.com/mauriciojr">@mauriciojr</a>
+						</small>
+					</p>
+				</section>
 
 			</div>
 
